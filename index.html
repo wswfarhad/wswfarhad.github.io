@@ -1,0 +1,321 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARHAD TECH | PS4 Exploit Host & Tech Services</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        .tech-font {
+            font-family: 'Orbitron', monospace;
+        }
+        body {
+            background-color: #040914;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(0, 119, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(to bottom, rgba(4, 9, 20, 0.95), rgba(3, 7, 18, 0.98)),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0l6.485 6.485-1.414 1.414L40.485 0h2.83zM16.686 0L10.2 6.485 11.616 7.9 19.515 0h-2.83zM22.343 0L13.86 8.485 15.272 9.9 25.17 0h-2.828zM37.657 0l8.485 8.485-1.414 1.414L34.83 0h2.828zm-9.9 0l9.9 9.9-1.414 1.415L24.83 0h2.928zm-4.243 0l9.9 9.9-1.414 1.415L17.757 0h4.243z' fill='%2300e5ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Neon & Cyber Glow */
+        .neon-border {
+            border: 1px solid #00e5ff;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3), inset 0 0 10px rgba(0, 229, 255, 0.15);
+        }
+        .neon-box {
+            border: 1px solid rgba(0, 229, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.15);
+        }
+        .neon-text {
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+        }
+        .neon-button {
+            transition: all 0.25s ease-in-out;
+            border: 1px solid #00e5ff;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 102, 255, 0.2) 100%);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+        }
+        .neon-button:hover, .neon-button:focus {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.3) 0%, rgba(0, 102, 255, 0.5) 100%);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.6), inset 0 0 10px rgba(0, 229, 255, 0.3);
+            transform: translateY(-2px);
+            outline: none;
+        }
+        .neon-button:active {
+            transform: translateY(1px);
+        }
+
+        /* Circuit line decorations */
+        .circuit-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00e5ff, transparent);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #040914;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00e5ff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+
+    <!-- Top Status Bar (PS4 Style) -->
+    <header class="w-full bg-[#071329]/90 border-b border-cyan-500/30 backdrop-blur-md px-4 py-3 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-sm">
+            
+            <!-- Host & Cache Status -->
+            <div class="flex items-center gap-3">
+                <span class="relative flex h-3 w-3">
+                    <span id="pingPulse" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span id="pingDot" class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+                </span>
+                <span id="cacheStatus" class="font-bold text-cyan-300 flex items-center gap-2">
+                    <i class="fa-solid fa-server text-cyan-400"></i>
+                    الحالة: متصل (الكاش جاهز للاستخدام أوفلاين)
+                </span>
+                <span class="bg-cyan-950 text-cyan-300 text-xs px-2.5 py-0.5 rounded-full border border-cyan-500/40 tech-font">
+                    farhad27.github.io
+                </span>
+            </div>
+
+            <!-- Controller Keys Quick Bar / Actions -->
+            <div class="flex items-center gap-2 text-xs md:text-sm">
+                <button onclick="toggleFullscreen()" class="px-3 py-1.5 rounded-lg bg-cyan-900/40 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-black transition flex items-center gap-2">
+                    <i class="fa-solid fa-expand"></i>
+                    <span>ملء الشاشة [□ FullScreen]</span>
+                </button>
+                <div class="hidden sm:flex items-center gap-2 bg-slate-900/80 px-3 py-1 rounded-lg border border-slate-700 text-slate-400 text-xs tech-font">
+                    <span><i class="fa-solid fa-circle-xmark text-blue-400"></i> Enter</span>
+                    <span><i class="fa-solid fa-circle-dot text-red-400"></i> Back</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl w-full mx-auto p-4 md:p-6 flex-grow flex flex-col gap-8">
+
+        <!-- FARHAD TECH Brand Banner (Matches User Design) -->
+        <section class="neon-box rounded-2xl p-6 md:p-8 bg-gradient-to-r from-[#03152d]/90 via-[#062449]/80 to-[#021024]/90 relative overflow-hidden">
+            <!-- Background Glows -->
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+                <!-- Brand Title and Slogan -->
+                <div class="text-center md:text-right flex-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold mb-3">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>جهازك بأيدٍ أمينة &lt;/&gt;</span>
+                    </div>
+                    
+                    <h1 class="text-3xl md:text-5xl font-black tracking-wider text-white flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-cyan-400 tech-font">&lt;/FARHAD TECH&gt;</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-cyan-300 mt-1">فرهاد تيك</h2>
+                    <p class="text-slate-300 text-sm md:text-base mt-2 max-w-xl leading-relaxed">
+                        متخصص في برمجة وصيانة أجهزة البلايستيشن، وإصلاح أجهزة الكمبيوتر والمحمول، وفك قفل الهواتف الذكية باحترافية وسرعة عالية.
+                    </p>
+
+                    <!-- Fast Badges -->
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-4 text-xs">
+                        <span class="bg-slate-900/90 text-cyan-300 border border-cyan-500/30 px-3 py-1 rounded-md flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt text-yellow-400"></i> خدمة سريعة
+                        </span>
+                        <span class="bg-slate-900/90 text-cyan-300 border border-cyan-500/30 px-3 py-1 rounded-md flex items-center gap-1.5">
+                            <i class="fa-solid fa-user-gear text-cyan-400"></i> فنيون محترفون
+                        </span>
+                        <span class="bg-slate-900/90 text-cyan-300 border border-cyan-500/30 px-3 py-1 rounded-md flex items-center gap-1.5">
+                            <i class="fa-solid fa-award text-green-400"></i> أفضل الأسعار
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Custom Logo Emblem -->
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-gradient-to-tr from-cyan-950 via-slate-900 to-blue-900 border-2 border-cyan-400 flex items-center justify-center shadow-[0_0_30px_rgba(0,229,255,0.4)] relative group">
+                        <div class="text-center">
+                            <i class="fa-solid fa-microchip text-4xl md:text-5xl text-cyan-400 group-hover:scale-110 transition duration-300"></i>
+                            <div class="tech-font font-black text-xs md:text-sm text-cyan-200 mt-2">FT - 27</div>
+                        </div>
+                        <span class="absolute -top-2 -right-2 bg-cyan-400 text-black text-[10px] font-black px-2 py-0.5 rounded-full tech-font">PS4 HOST</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="circuit-line"></div>
+
+        <!-- PS4 Exploit & GoldHEN Section -->
+        <section class="bg-[#051125]/80 border border-cyan-500/40 rounded-2xl p-6 shadow-xl relative backdrop-blur-sm">
+            <div class="flex flex-col sm:flex-row items-center justify-between border-b border-cyan-500/20 pb-4 mb-6 gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500 text-cyan-400 text-xl">
+                        <i class="fa-brands fa-playstation"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <span>لوحة تشغيل التهكير (PS4 Exploit Host)</span>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-full">GoldHEN v2.4b16</span>
+                        </h3>
+                        <p class="text-xs text-slate-400">اختر إصدار النظام الخاص بجهازك لتفعيل الجيلبريك وتثبيت الألعاب</p>
+                    </div>
+                </div>
+
+                <!-- Firmware Selector Tabs -->
+                <div class="flex items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-700 text-xs">
+                    <button onclick="setFirmware('9.00')" id="fw-900" class="fw-btn px-4 py-1.5 rounded-lg bg-cyan-500 text-black font-bold transition">9.00</button>
+                    <button onclick="setFirmware('11.00')" id="fw-1100" class="fw-btn px-4 py-1.5 rounded-lg text-slate-300 hover:text-white transition">11.00</button>
+                    <button onclick="setFirmware('6.72')" id="fw-672" class="fw-btn px-4 py-1.5 rounded-lg text-slate-300 hover:text-white transition">6.72</button>
+                </div>
+            </div>
+
+            <!-- Exploit Status Banner & Progress bar -->
+            <div class="mb-6 bg-slate-950/80 border border-slate-800 rounded-xl p-4">
+                <div class="flex items-center justify-between text-sm mb-2">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-cyan-400 text-xs"></i>
+                        <span id="logStatus" class="text-slate-300">جاهز للتفعيل.. اضغط على زر تفعيل GoldHEN أدناه.</span>
+                    </div>
+                    <span id="progressText" class="tech-font font-bold text-cyan-400">0%</span>
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                    <div id="progressBar" class="bg-gradient-to-r from-blue-600 to-cyan-400 h-full rounded-full transition-all duration-300 w-0 shadow-[0_0_12px_rgba(0,229,255,0.8)]"></div>
+                </div>
+            </div>
+
+            <!-- Primary Exploit Trigger Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 mb-6">
+                <!-- GoldHEN Primary -->
+                <button onclick="triggerExploit('GoldHEN v2.4b16')" class="neon-button p-4 rounded-xl flex items-center gap-3.5 text-right group">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/20 border border-amber-500/50 flex items-center justify-center text-amber-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-white text-base">تفعيل GoldHEN</div>
+                        <div class="text-xs text-cyan-300">تشغيل أحدث إصدار للألعاب</div>
+                    </div>
+                </button>
+
+                <!-- Disable Updates -->
+                <button onclick="triggerExploit('Disable Updates')" class="neon-button p-4 rounded-xl flex items-center gap-3.5 text-right group">
+                    <div class="w-12 h-12 rounded-lg bg-rose-500/20 border border-rose-500/50 flex items-center justify-center text-rose-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-white text-base">إيقاف التحديثات الإجبارية</div>
+                        <div class="text-xs text-slate-400">حماية الجهاز من التحديث التلقائي</div>
+                    </div>
+                </button>
+
+                <!-- Enable Updates -->
+                <button onclick="triggerExploit('Enable Updates')" class="neon-button p-4 rounded-xl flex items-center gap-3.5 text-right group">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-white text-base">إلغاء حظر التحديثات</div>
+                        <div class="text-xs text-slate-400">إرجاع إعدادات النظام الأصلية</div>
+                    </div>
+                </button>
+
+                <!-- App2USB -->
+                <button onclick="triggerExploit('App2USB')" class="neon-button p-4 rounded-xl flex items-center gap-3.5 text-right group">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-hard-drive"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-white text-base">App2USB (نقل الألعاب)</div>
+                        <div class="text-xs text-slate-400">نقل الألعاب إلى هارد خارجي</div>
+                    </div>
+                </button>
+
+                <!-- FTP Server -->
+                <button onclick="triggerExploit('FTP Server')" class="neon-button p-4 rounded-xl flex items-center gap-3.5 text-right group">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center text-indigo-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-white text-base">تشغيل سيرفر FTP</div>
+                        <div class="text-xs text-slate-400">إرسال واستقبال ملفات الـ PS4</div>
+                    </div>
+                </button>
+
+                <!-- Orbis Toolbox -->
+                <button onclick="triggerExploit('Orbis Toolbox')" class="neon-button p-4 rounded-xl flex items-center gap-3.5 text-right group">
+                    <div class="w-12 h-12 rounded-lg bg-purple-500/20 border border-purple-500/50 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-toolbox"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-white text-base">أدوات Orbis Toolbox</div>
+                        <div class="text-xs text-slate-400">مراقبة الحرارة وإعدادات المطور</div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Offline Cache Helper Banner -->
+            <div class="bg-cyan-950/40 border border-cyan-500/30 rounded-xl p-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cyan-200">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-wifi text-cyan-400 text-sm"></i>
+                    <span><strong>ملاحظة للمتصفح:</strong> عند فتح هذا الرابط لأول مرة، يتم تخزين الملفات تلقائياً ليعمل الهوست بدون نت دائماً!</span>
+                </div>
+                <button onclick="cacheSiteAgain()" class="px-3 py-1.5 rounded-lg bg-cyan-500/20 border border-cyan-400 text-cyan-300 hover:bg-cyan-500 hover:text-black font-semibold transition">
+                    <i class="fa-solid fa-rotate mr-1"></i> إعادة حفظ الكاش (Cache Again)
+                </button>
+            </div>
+        </section>
+
+        <!-- Our Services Section (From Farhad Tech Banner) -->
+        <section>
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-black text-white flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-wrench text-cyan-400"></i>
+                    خدمات مركز فرهاد تيك (FARHAD TECH)
+                </h3>
+                <p class="text-slate-400 text-sm mt-1">نقدم لكم أفضل الحلول التقنية مع ضمان الجودة والسرعة</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- Service 1: PlayStation -->
+                <div class="bg-[#061833]/70 border border-cyan-500/30 rounded-2xl p-5 hover:border-cyan-400 transition hover:shadow-[0_0_20px_rgba(0,229,255,0.2)]">
+                    <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-400 flex items-center justify-center text-cyan-300 text-2xl mb-4">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">برمجة وصيانة البلايستيشن</h4>
+                    <span class="inline-block px-2.5 py-0.5 rounded bg-blue-950 text-cyan-300 text-xs font-semibold mb-3 border border-blue-800">PS4 / PS3</span>
+                    <ul class="text-slate-300 text-xs space-y-2 leading-relaxed">
+                        <li><i class="fa-solid fa-check text-cyan-400 ml-1.5"></i> تثبيت أحدث حزم الألعاب وتفعيل الإضافات (DLCs)</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 ml-1.5"></i> حل مشاكل النظام، التعليق والشاشات السوداء</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 ml-1.5"></i> تنظيف المراوح، تبديل المعجون الحراري وصيانة الهارد</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Laptop & PC -->
+                <div class="bg-[#061833]/70 border border-cyan-500/30 rounded-2xl p-5 hover:border-cyan-400 transition hover:shadow-[0_0_20px_rgba(0,229,255,0.2)]">
+                    <div class="w-14
